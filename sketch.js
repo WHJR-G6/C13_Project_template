@@ -5,7 +5,6 @@ var basket,basketImg;
 var fruitGroup;
 var fruit1_img, fruit2_img, fruit3_img, fruit4_img, fruit5_img;
 var player_img;
-var score = 0;
 
 
 function preload(){
@@ -25,8 +24,7 @@ function setup() {
   
   basket = createSprite(250,450,20,50);
   basket.addImage(basketImg);
-  
-  fruitsGroup = new Group();
+  //create fruit group
  
 }
 
@@ -40,14 +38,12 @@ function draw() {
   
     for(var i =0;i<fruitsGroup.length;i++){
       if(fruitsGroup.get(i).isTouching(basket)){
-        fruitsGroup.get(i).destroy();
-        score=score+1;
+        //destroy the specific fruit using get(i)
+       
       }
     }
     
-  textSize(20);
-  fill("brown");
-  text("Score : " + score, 350,50);
+ 
   
   drawSprites();
 }
@@ -72,9 +68,12 @@ function spawnFruits() {
       break;
       default: break;
     }    
-    fruit.lifetime = 200;
+    // apply lifetime to the fruit sprite
+    
+    
     //add each fruit to the group
-    fruitsGroup.add(fruit);
+    
+    
 }
 }
 
